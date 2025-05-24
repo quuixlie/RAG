@@ -1,4 +1,4 @@
-from ..config import ConfigTemplate
+from ..config import Config
 from ..database.vector_database import VectorDatabase
 from .__rag_architecture_template import RAGArchitectureTemplate
 from ..utils.document_parser import parse_to_markdown
@@ -20,7 +20,7 @@ class ClassicRAG(RAGArchitectureTemplate):
     :param config: Configuration object containing RAG settings
     """
 
-    def __init__(self, rag_architecture_name: str, config: ConfigTemplate) -> None:
+    def __init__(self, rag_architecture_name: str, config: Config) -> None:
         super().__init__(rag_architecture_name)
         self.config = config
         self.embedder = EmbedderFactory(self.config.embedder_name, **self.config.embedder_kwargs)
